@@ -19,6 +19,7 @@
         <context>permission-viewer-plugin</context>
     </web-resource>
     <!-- import from the product container -->
+    <component-import key="projectService" interface="com.atlassian.stash.project.ProjectService" filter=""/>
     <component-import key="repositoryService" interface="com.atlassian.stash.repository.RepositoryService" filter=""/>
     <component-import key="securityService" interface="com.atlassian.stash.user.SecurityService" filter=""/>
     <component-import key="permissionAdminService" interface="com.atlassian.stash.user.PermissionAdminService"
@@ -39,7 +40,7 @@
     </servlet>
     <web-item key="project-permissions-tab" name="Project permissions tab" section="atl.project.nav" weight="100">
         <label key="project.permissions.plugin.tab">View Permissions</label>
-        <link>/plugins/servlet/projectpermissions/${project.id}</link>
+        <link>/plugins/servlet/projectpermissions/${project.key}</link>
         <tooltip key="project.permissions.plugin.tab.description">View Permissions</tooltip>
     </web-item>
     <web-item key="repository-permissions-tab" name="Repository permissions tab" section="stash.repository.nav"

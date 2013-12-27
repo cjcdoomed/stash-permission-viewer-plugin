@@ -1,0 +1,113 @@
+{namespace plugin.permissionviewer}
+
+/**
+ * @param project Project object which is in the context provided by ProjectPermissionsServlet
+ * @param projectAdmin list of project level group and user admin
+ * @param projectWrite list of project level group and user write
+ * @param projectRead list of project level group and user read
+ */
+{template .projectPermissionsTab}
+<html>
+<head>
+    <meta name="decorator" content="stash.project.general">
+    <meta name="activeTab" content="project-permissions-tab">
+    <meta name="projectKey" content="{$project.key}">
+    <title>{$project.name} Ownership Info</title>
+</head>
+<body>
+    {call .permissionTable}
+        {param level: 'Project'/}
+        {param levelDescription: 'Permissions that have been granted to every repository in the project.'/}
+        {param adminValues: $projectAdmin /}
+        {param writeValues: $projectWrite /}
+        {param readValues: $projectRead /}
+    {/call}
+</body>
+</html>
+{/template}
+
+/**
+* @param repository Repository object which is in the context provided by ReposOwnershipServlet
+* @param projectAdmin list of project level group and user admin
+* @param projectWrite list of project level group and user write
+* @param projectRead list of project level group and user read
+* @param repositoryAdmin list of repository level group and user admins
+* @param repositoryWrite list of repository level group and user write
+* @param repositoryRead list of repository level group and user read
+*/
+{template .repositoryPermissionsTab}
+<html>
+<head>
+  <meta name="decorator" content="stash.repository.general">
+  <meta name="activeTab" content="repository-permissions-tab">
+  <meta name="projectKey" content="{$repository.project.key}">
+  <meta name="repositorySlug" content="{$repository.slug}">
+  <title>{$repository.name} Ownership Info</title>
+</head>
+<body>
+  {call .permissionTable}
+      {param level: 'Repository'/}
+      {param levelDescription: 'Repository permissions extend access to users and groups beyond that already granted via project permissions.'/}
+      {param adminValues: $repositoryAdmin /}
+      {param writeValues: $repositoryWrite /}
+      {param readValues: $repositoryRead /}
+  {/call}
+  {call .permissionTable}
+      {param level: 'Project'/}
+      {param levelDescription: 'Permissions that have been granted to every repository in the project.'/}
+      {param adminValues: $projectAdmin /}
+      {param writeValues: $projectWrite /}
+      {param readValues: $projectRead /}
+  {/call}
+</body>
+</html>
+{/template}
+
+
+
+/**
+ * Outputs a table of permissions
+ *
+ * @param level
+ * @param levelDescription
+ * @param adminValues List of admin items
+ * @param writeValues List of write items
+ * @param readValues List of read items
+ */
+{template .permissionTable}
+    <h2>{$level} permissions</h2>
+    {$levelDescription}<br/>
+    <br/>
+    {if (length($adminValues) > 0) or (length($writeValues) > 0) or (length($readValues) > 0) }
+
+        <table class="aui">
+        <thead><tr><th>Permission</th><th>Access</th></tr></thead>
+        {call .permissionRow}
+          {param permissionName: 'Admin'/}
+          {param values: $adminValues /}
+        {/call}
+        {call .permissionRow}
+          {param permissionName: 'Write'/}
+          {param values: $writeValues /}
+        {/call}
+        {call .permissionRow}
+          {param permissionName: 'Read'/}
+          {param values: $readValues /}
+        {/call}
+        </table><br/>
+    {/if}
+{/template}
+
+/**
+ * Outputs a row of permissions
+ *
+ * @param permissionName
+ * @param values List of items
+ */
+{template .permissionRow}
+  {foreach $item in $values}
+    {if isFirst($item)}<tr><td><strong>{$permissionName}</strong></td><td>{/if}
+    {if not isFirst($item)}, {/if}{$item}
+    {if isLast($item)}</td></tr>{/if}
+  {/foreach}
+{/template}

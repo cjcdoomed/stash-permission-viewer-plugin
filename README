@@ -1,13 +1,12 @@
-You have successfully created an Atlassian Plugin!
+# The Permission Viewer Plugin
 
-Here are the SDK commands you'll use immediately:
+Extends your Atlassian Stash instance to display project and repository permissions to anyone with view access.
 
-* atlas-run   -- installs this plugin into the product and starts it on localhost
-* atlas-debug -- same as atlas-run, but allows a debugger to attach at port 5005
-* atlas-cli   -- after atlas-run or atlas-debug, opens a Maven command line window:
-                 - 'pi' reinstalls the plugin into the running product instance
-* atlas-help  -- prints description for all commands in the SDK
+The plugin shows two tabs:
 
-Full documentation is always available at:
+* A project permission tab that displays project admin, write and read permissions
+* A repository permission tab which repository admin, write and read permissions as well as permissions inherited from the project level.
 
-https://developer.atlassian.com/display/DOCS/Introduction+to+the+Atlassian+Plugin+SDK
+Groups with permissions are expanded out to show group name and user membership.
+
+Once the plugin is installed an "View Permissions" tab will display in the project and repository tab panels.

@@ -10,7 +10,7 @@
         <url>http://www.orbitz.com/</url>
     </organization>
     <name>permission-viewer-plugin</name>
-    <description>This is the com.orbitz.stash.plugins:permission-viewer-plugin plugin for Atlassian Stash.</description>
+    <description>The Permission Viewer Plugin extends your Atlassian Stash instance to display repository ownership information to anyone with access to view the repository.</description>
     <packaging>atlassian-plugin</packaging>
     <repositories>
         <repository>
