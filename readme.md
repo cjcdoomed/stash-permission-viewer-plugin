@@ -11,7 +11,7 @@ Groups with permissions are expanded out to show group name and user membership.
 
 Once the plugin is installed an "View Permissions" tab will display in the project and repository tab panels.
 
-You must install the Atlassian Plugin SDK - Instructions here:https://developer.atlassian.com/stash/docs/latest/how-tos/creating-a-stash-plugin.html
+Note: You must first install the Atlassian Plugin SDK - Instructions at https://developer.atlassian.com/stash/docs/latest/how-tos/creating-a-stash-plugin.html
 
 Atlassian Plugin SDK Command Reference: https://developer.atlassian.com/display/DOCS/Command+Reference
 

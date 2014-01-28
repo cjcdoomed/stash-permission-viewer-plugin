@@ -4,14 +4,22 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.orbitz.stash.plugins</groupId>
     <artifactId>permission-viewer-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <organization>
         <name>Orbitz</name>
         <url>http://www.orbitz.com/</url>
     </organization>
     <name>permission-viewer-plugin</name>
-    <description>The Permission Viewer Plugin extends your Atlassian Stash instance to display repository ownership information to anyone with access to view the repository.</description>
+    <description>The Permission Viewer Plugin extends your Atlassian Stash instance to display project and repository permission information to anyone with access to view the project or repository.</description>
     <packaging>atlassian-plugin</packaging>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
     <repositories>
         <repository>
             <id>atlassian-public</id>
