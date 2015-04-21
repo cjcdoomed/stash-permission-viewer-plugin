@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.orbitz.stash.plugins</groupId>
     <artifactId>permission-viewer-plugin</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <organization>
         <name>Orbitz</name>
         <url>http://www.orbitz.com/</url>
     </organization>
-    <name>permission-viewer-plugin</name>
+    <name>Permission Viewer Plugin</name>
     <description>The Permission Viewer Plugin extends your Atlassian Stash instance to display project and repository permission information to anyone with access to view the project or repository.</description>
     <packaging>atlassian-plugin</packaging>
     <licenses>
@@ -149,9 +149,9 @@
         </plugins>
     </build>
     <properties>
-        <stash.version>2.10.0</stash.version>
-        <stash.data.version>2.10.0</stash.data.version>
-        <amps.version>4.2.10</amps.version>
+        <stash.version>3.8.0</stash.version>
+        <stash.data.version>3.8.0</stash.data.version>
+        <amps.version>5.0.13</amps.version>
         <plugin.testrunner.version>1.1.2</plugin.testrunner.version>
     </properties>
 </project>
