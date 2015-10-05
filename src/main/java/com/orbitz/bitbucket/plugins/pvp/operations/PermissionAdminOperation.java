@@ -1,31 +1,18 @@
-package com.orbitz.stash.plugins.pvp.operations;
+package com.orbitz.bitbucket.plugins.pvp.operations;
+
+import com.atlassian.bitbucket.permission.Permission;
+import com.atlassian.bitbucket.permission.PermissionAdminService;
+import com.atlassian.bitbucket.permission.PermittedGroup;
+import com.atlassian.bitbucket.permission.PermittedUser;
+import com.atlassian.bitbucket.project.Project;
+import com.atlassian.bitbucket.repository.Repository;
+import com.atlassian.bitbucket.user.*;
+import com.atlassian.bitbucket.util.Page;
+import com.atlassian.bitbucket.util.PageRequest;
+import com.atlassian.bitbucket.util.PageRequestImpl;
+import com.atlassian.bitbucket.util.UncheckedOperation;
 
 import java.util.*;
-import com.atlassian.soy.renderer.SoyException;
-import com.atlassian.stash.project.Project;
-import com.atlassian.stash.repository.Repository;
-import com.atlassian.stash.repository.RepositoryService;
-import com.atlassian.stash.user.*;
-import com.atlassian.stash.util.Page;
-import com.atlassian.stash.util.PageRequest;
-import com.atlassian.stash.util.PageRequestImpl;
-import com.atlassian.stash.util.UncheckedOperation;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.*;
-
-import com.atlassian.stash.user.SecurityService;
-import com.atlassian.stash.user.PermissionAdminService;
-import com.atlassian.stash.user.UserService;
-import com.atlassian.soy.renderer.SoyTemplateRenderer;
 
 
 /**
@@ -114,13 +101,13 @@ public class PermissionAdminOperation implements UncheckedOperation<Map<Permissi
         StringBuilder builder = new StringBuilder();
 
         builder.append(permittedGroup.getGroup());
-        Page<? extends StashUser> stashUserPage =  userService.findUsersByGroup(permittedGroup.getGroup(), pageRequest);
+        Page<? extends ApplicationUser> appUserPage =  userService.findUsersByGroup(permittedGroup.getGroup(), pageRequest);
 
 
         ArrayList<String> userList = new ArrayList<String>();
 
-        for (StashUser stashUser : stashUserPage.getValues()) {
-            userList.add(stashUser.getDisplayName());
+        for (ApplicationUser appUser : appUserPage.getValues()) {
+            userList.add(appUser.getDisplayName());
         }
         builder.append(Arrays.toString(userList.toArray()));
 

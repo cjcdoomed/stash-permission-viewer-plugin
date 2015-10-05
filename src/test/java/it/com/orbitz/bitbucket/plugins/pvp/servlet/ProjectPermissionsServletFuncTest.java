@@ -1,4 +1,4 @@
-package it.com.orbitz.stash.plugins.pvp.servlet;
+package it.com.orbitz.bitbucket.plugins.pvp.servlet;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;

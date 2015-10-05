@@ -1,4 +1,4 @@
-package ut.com.orbitz.stash.plugins.pvp.servlet;
+package ut.com.orbitz.bitbucket.plugins.pvp.servlet;
 
 import org.junit.Test;
 import org.junit.After;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-public class ProjectPermissionsServletTest {
+public class RepositoryPermissionsServletTest {
 
     HttpServletRequest mockRequest;
     HttpServletResponse mockResponse;
